@@ -1,71 +1,87 @@
-function sorting(arrNumber) {
-    // code di sini
-    arrNumber.sort(function(a, b) { return a - b })
+function changeVocals(str) {
+    var simpanVocals = ''
+        //code di sini
+    for (var i = 0; i < str.length; i++) {
+
+        if (str[i] === 'a') {
+            simpanVocals += 'b'
+        } else if (str[i] === 'i') {
+            simpanVocals += 'j'
+        } else if (str[i] === 'u') {
+            simpanVocals += 'v'
+        } else if (str[i] === 'e') {
+            simpanVocals += 'f'
+        } else if (str[i] === 'o') {
+            simpanVocals += 'p'
+        } else if (str[i] === 'A') {
+            simpanVocals += 'B'
+        } else if (str[i] === 'I') {
+            simpanVocals += 'J'
+        } else if (str[i] === 'U') {
+            simpanVocals += 'V'
+        } else if (str[i] === 'E') {
+            simpanVocals += 'F'
+        } else if (str[i] === 'O') {
+            simpanVocals += 'O'
+        }
+
+    }
+    return simpanVocals
 }
 
-function getTotal(arrNumber) {
-    // code di sini
-    // for (var i = 0; i < arrNumber.length; i++) {
-    //     var counter = 0
-    //     for (var j = 0; j < arrNumber.length; j++) {
-    //         if (arrNumber[i] === arrNumber[j]) {
-    //             counter += 1
-    //         }
-    //         else {
-    //             counter += 0
-    //         }
+function reverseWord(str) {
+    //code di sini
+    var simpanReverse = ''
+    for (var i = str.length - 1; i >= 0; i--) {
+        simpanReverse += str[i]
 
-    //     }
-
-    // }
-    // return counter
-    var tampung = []
-    var hasil = []
-    for (var i = 0; i < arrNumber.length; i++) {
-        var check = true
-        for (var j = 0; j < tampung.length; j++) {
-            if (arr[i] === tampung[j]) {
-                check = false
-            }
-        }
-        if (check === true) {
-            tampung.push(arrNumber[i])
-        }
     }
-    for (var i = 0; i < arrNumber.length; i++) {
-        for (var j = 0; j < arrNumber.length; j++) {
-            if (i !== j) {
-                if (arrNumber[i] === arrNumber[j]) {
-                    hasil.push(arrNumber[i])
-                }
-            }
+    return simpanReverse
+}
 
+function setLowerUpperCase(str) {
+    //code di sini
+    var simpanSet = ''
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] === str[i].toLowerCase()) {
+            simpanSet += str[i].toUpperCase()
+        } else {
+            simpanSet += str[i].toLowerCase()
         }
 
     }
-    if (tampung.length === 1) {
-        return -1
-    } else if (tampung.length === arrNumber.length) {
-        return -1
+    return simpanSet
+}
+
+function removeSpaces(str) {
+    //code di sini
+    var simpanRemoveSpaces = ''
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] === ' ') {
+            simpanRemoveSpaces += ''
+        } else {
+            simpanRemoveSpaces += str[i]
+        }
+
+    }
+    return simpanRemoveSpaces
+}
+
+function passwordGenerator(name) {
+    //code di sini
+    if (name.length < 5) {
+        return 'Minimal karakter yang diinputkan adalah 5 karakter'
     } else {
-        return hasil[0]
+        var vocals = changeVocals(name)
+        var reverse = reverseWord(vocals)
+        var lowerupperCase = setLowerUpperCase(reverse)
+        var remove = removeSpaces(lowerupperCase)
+        return remove
     }
+
 }
 
-function mostFrequentLargestNumbers(arrNumber) {
-    var listSort = sorting(arrNumber);
-    var countHighest = getTotal(listSort);
-    return countHighest;
-}
-
-console.log(mostFrequentLargestNumbers([2, 8, 4, 6, 8, 5, 8, 4]));
-//'angka paling besar adalah 8 dan jumlah kemunculan sebanyak 3 kali'
-
-console.log(mostFrequentLargestNumbers([122, 122, 130, 100, 135, 100, 135, 150]));
-//'angka paling besar adalah 150 dan jumlah kemunculan sebanyak 1 kali'
-
-console.log(mostFrequentLargestNumbers([1, 1, 1, 1]));
-//'angka paling besar adalah 1 dan jumlah kemunculan sebanyak 4 kali'
-
-console.log(mostFrequentLargestNumbers([]));
-//''
+console.log(passwordGenerator('Sergei Dragunov')); // 'VPNVGBRdJFGRFs'
+console.log(passwordGenerator('Dimitri Wahyudiputra')); // 'BRTVPJDVYHBwJRTJMJd'
+console.log(passwordGenerator('Alexei')); // 'JFXFLb'
+console.log(passwordGenerator('Alex')); // 'Minimal karakter yang diinputkan adalah 5 karakter'
