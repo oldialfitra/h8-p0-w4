@@ -1,8 +1,6 @@
 function changeVocals(str) {
     var simpanVocals = ''
-        //code di sini
     for (var i = 0; i < str.length; i++) {
-
         if (str[i] === 'a') {
             simpanVocals += 'b'
         } else if (str[i] === 'i') {
@@ -23,6 +21,8 @@ function changeVocals(str) {
             simpanVocals += 'F'
         } else if (str[i] === 'O') {
             simpanVocals += 'O'
+        } else {
+            simpanVocals += str[i]
         }
 
     }
