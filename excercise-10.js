@@ -23,19 +23,24 @@
 function changeMe(arr) {
     var result = {}
     var year = new Date().getFullYear()
-    for (let i = 0; i < arr.length; i++) {
-        var keyName = (i + 1) + '. ' + arr[i][0] + ' ' + arr[i][1] + ': '
-        result['firstname'] = arr[i][0]
-        result['lastname'] = arr[i][1]
-        result['gender'] = arr[i][2]
-        if (arr[i][3] === undefined) {
-            result['age'] = 'Invalid Birth Year'
-        } else {
-            result['age'] = year - arr[i][3]
+    if (arr.length === 0) {
+        console.log('')
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            var keyName = (i + 1) + '. ' + arr[i][0] + ' ' + arr[i][1] + ': '
+            result['firstname'] = arr[i][0]
+            result['lastname'] = arr[i][1]
+            result['gender'] = arr[i][2]
+            if (arr[i][3] === undefined) {
+                result['age'] = 'Invalid Birth Year'
+            } else {
+                result['age'] = year - arr[i][3]
+            }
+            console.log(keyName)
+            console.log(result)
         }
-        console.log(keyName)
-        console.log(result)
     }
+
 }
 
 changeMe([
