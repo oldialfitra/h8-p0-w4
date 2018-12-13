@@ -1,23 +1,41 @@
+// function changeMe(arr) {
+//     var result = {}
+//     var hasil = []
+//     for (var i = 0; i < arr.length; i++) {
+//         var keyName = (i + 1) + '. ' + arr[i][0] + ' ' + arr[i][1] + ': '
+//         if (result[keyName] === undefined) {
+//             result[keyName] = {}
+//             result[keyName]['firstname'] = arr[i][0]
+//             result[keyName]['lastname'] = arr[i][1]
+//             result[keyName]['gender'] = arr[i][2]
+//             result[keyName]['age'] = arr[i][3]
+//         }
+//         if (result[keyName]['age'] === undefined) {
+//             result[keyName]['age'] = 'Invalid Birth Year'
+//         }
+
+//     }
+//     console.log(result)
+
+
+// }
+
 function changeMe(arr) {
     var result = {}
-    var hasil = []
-    for (var i = 0; i < arr.length; i++) {
+    var year = new Date().getFullYear()
+    for (let i = 0; i < arr.length; i++) {
         var keyName = (i + 1) + '. ' + arr[i][0] + ' ' + arr[i][1] + ': '
-        if (result[keyName] === undefined) {
-            result[keyName] = {}
-            result[keyName]['firstname'] = arr[i][0]
-            result[keyName]['lastname'] = arr[i][1]
-            result[keyName]['gender'] = arr[i][2]
-            result[keyName]['age'] = arr[i][3]
+        result['firstname'] = arr[i][0]
+        result['lastname'] = arr[i][1]
+        result['gender'] = arr[i][2]
+        if (arr[i][3] === undefined) {
+            result['age'] = 'Invalid Birth Year'
+        } else {
+            result['age'] = year - arr[i][3]
         }
-        if (result[keyName]['age'] === undefined) {
-            result[keyName]['age'] = 'Invalid Birth Year'
-        }
-
+        console.log(keyName)
+        console.log(result)
     }
-    console.log(result)
-
-
 }
 
 changeMe([
